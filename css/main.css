@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans|Righteous&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    background: black;
+}
+.pagewrapper{
+    width: 100%;
+    height: 100vh;
+}
+
+.sidebar{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 9.9%;
+    height: 100vh;
+    text-align: center;
+    border-right: #A4A4A4 solid 1px;
+    z-index: 100;
+}
+.sidebar .logo{
+    width: 90%;
+    height: 10vh;
+    background: url('..//images/logo.png') center no-repeat ;
+    background-size: contain;
+    margin: 0 auto;
+}
+ .nav_menu{
+    position: fixed;
+    top:0;
+    right: 0;
+    width: 90%;
+    height: 10vh;
+    text-align: left;
+    z-index: 100;
+}
+ .nav_menu ul{
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+    margin: 3.9vh 0;
+}
+ .nav_menu ul li{
+    display: inline;
+    margin: 0 25px ;
+    
+}
+ .nav_menu ul li a{
+    color: #B7B6B5;
+    text-decoration: none;
+    font-family: 'Righteous', cursive;
+    font-size: 15px;
+    cursor: pointer;
+    
+}
+.service_details{
+    width: 25%;
+    height: 100vh;
+    background: #4D6094;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+.service_details .service_detail_img{
+    width: 100%;
+    height: 50vh;
+    
+}
+.service_details .service_detail_img img{
+    width: 100%;
+    height: 100%;
+}
+.service_details .service_detail_desc{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.service_slider{
+    display: none;
+    width: 100%;
+    height: 100vh;
+    
+}
+.service_slider .service{
+    width: 75%;
+    height: 100vh;
+    position: relative
+}
+.service_slider .service #service_1{
+    width: 100%;
+    height: 100vh;
+    background: url('..//images/b1.jpg') center no-repeat ;
+    background-size: cover;
+}
+.service_slider .service h1{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 9vw;
+    color: #f3f3f3;
+    text-align: left;
+    position: absolute;
+    top:50%;
+    transform: translate(30%,-100%);
+}
+.service_slider .service h2{
+    width: 25vw;
+    font-family: 'Righteous', cursive;
+    font-size: 1.5vw;
+    color: #B7B6B5;
+    text-align: left;
+    position: absolute;
+    top:60%;
+    transform: translate(50%,-100%);
+}
+.service_slider .service h1 #spec_img{
+    width: 7vw;
+    height: 7vw;
+    background: url('..//images/pa_circle_white.png') center no-repeat ;
+    background-size: cover;
+    display: inline-block;
+}
+
+
+.service_slider .service_overlay{
+    width: 100%;
+    height: 100vh;
+    background-color: #100F0F;
+    opacity: 0.7;
+}
+
+
