@@ -44,15 +44,18 @@ body{
  .nav_menu ul li{
     display: inline;
     margin: 0 25px ;
-    
 }
  .nav_menu ul li a{
     color: #B7B6B5;
     text-decoration: none;
     font-family: 'Righteous', cursive;
-    font-size: 15px;
+    font-size: 2vh;
     cursor: pointer;
+    transition: .5s
     
+}
+.nav_menu ul li a:hover{
+    color: #f3f3f3;  
 }
 .service_details{
     width: 25%;
@@ -75,11 +78,72 @@ body{
     width: 100%;
     height: 100%;
 }
-
-
-
+.service_details .service_detail_desc .detail_info{
+    width: 100%;
+    height: 10%;
+}
+.service_details .service_detail_desc .detail_info .detail_index{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 1.7vw;
+    color: #f3f3f3;
+    display: inline-block;
+    width: 45%;
+    margin-left:5%;
+    margin-top:2%;
+}
+.service_details .service_detail_desc .detail_info .detail_small_title{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 1.5vw;
+    color: #f3f3f3;
+    display: inline-block;
+    text-align: right;
+    width: 45%;
+}
+.service_details .service_detail_desc .detail_tag_line{
+    font-family: 'Righteous', cursive;
+    font-size: 2.2vw;
+    color: #f3f3f3;
+    display: inline-block;
+    width: 90%;
+    margin-left:5%;
+    margin-top:2%;
+}
+.service_details .service_detail_desc .detail_controls{
+    width: 100%;
+    height: 5%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+}
+.service_details .service_detail_desc .detail_controls .detail_expand{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 1.4vw;
+    color: #f3f3f3;
+    width: 50%;
+    text-align: left;
+    cursor: pointer;
+    display: inline-block;
+}
+.service_details .service_detail_desc .detail_controls .detail_switch_controls{
+    width: 30%;
+    text-align: right;
+    display: inline-block;
+}
+.service_details .service_detail_desc .detail_controls .detail_switch_controls .switch_left{
+    display: inline-block;
+    cursor: pointer;
+}
+.service_details .service_detail_desc .detail_controls .detail_switch_controls .switch_left svg{
+    width: 70%
+}
+.service_details .service_detail_desc .detail_controls .detail_switch_controls .switch_right{
+    display: inline-block;
+    cursor: pointer;
+}
+.service_details .service_detail_desc .detail_controls .detail_switch_controls .switch_right svg{
+    width: 70%
+}
 .service_slider{
-    display: none;
     width: 100%;
     height: 100vh;
     
@@ -97,37 +161,83 @@ body{
 }
 .service_slider .service h1{
     font-family: 'Abril Fatface', cursive;
-    font-size: 9vw;
+    font-size: 7vw;
     color: #f3f3f3;
     text-align: left;
     position: absolute;
     top:50%;
-    transform: translate(30%,-100%);
+    transform: translate(50%,-100%);
 }
 .service_slider .service h2{
     width: 25vw;
     font-family: 'Righteous', cursive;
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     color: #B7B6B5;
-    text-align: left;
+    text-align: right;
     position: absolute;
     top:60%;
-    transform: translate(50%,-100%);
+    transform: translate(60%,-50%);
 }
 .service_slider .service h1 #spec_img{
-    width: 7vw;
-    height: 7vw;
+    width: 5.5vw;
+    height: 5.5vw;
     background: url('..//images/pa_circle_white.png') center no-repeat ;
     background-size: cover;
     display: inline-block;
 }
-
-
-.service_slider .service_overlay{
+.service_slider .service .service_overlay{
     width: 100%;
     height: 100vh;
     background-color: #100F0F;
     opacity: 0.7;
 }
-
+.service_slider .service_slider_controls{
+    width: 55%;
+    height: 10vh;
+    position: absolute;
+    bottom: 1vh;
+    left: 15%;
+    text-align: right;
+}
+.service_slider .service_slider_controls .next_service{
+    font-size: 7vh;
+    font-family: 'Abril Fatface', cursive;
+    position: absolute;
+    color: transparent;
+    bottom: 5vh;
+    right: 35%;
+    text-align: center;
+    cursor: pointer;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #B7B6B5;
+}
+.service_slider .service_slider_controls .next_service:hover{
+    -webkit-text-stroke-color: #f3f3f3;
+}
+.service_slider .service_slider_controls .switch_left{
+    width: 6%;
+    height: 6vh;
+    border: #B7B6B5 solid 1px;
+    position: absolute;
+    bottom: 5vh;
+    left: 1%;
+    text-align: center;
+    cursor: pointer;
+}
+.service_slider .service_slider_controls .switch_left svg{
+    margin: 1.4vh;
+}
+.service_slider .service_slider_controls .switch_right{
+    width: 6%;
+    height: 6vh;
+    background:#4D6094;
+    position: absolute;
+    bottom: 5vh;
+    right: 1%;
+    text-align: center;
+    cursor: pointer;
+}
+.service_slider .service_slider_controls .switch_right svg{
+    margin: 1.4vh;
+}
 
