@@ -2,7 +2,7 @@
 body{
     margin: 0;
     padding: 0;
-    background: black;
+    background: #0D0D0D;
 }
 .pagewrapper{
     width: 100%;
@@ -25,6 +25,48 @@ body{
     background: url('..//images/logo.png') center no-repeat ;
     background-size: contain;
     margin: 0 auto;
+}
+.sidebar .slide_loader{
+    position: relative;
+    top: 15%;
+}
+
+.sidebar .slide_loader svg{
+    height: 45%;
+}
+
+.sidebar .slide_loader svg .load{
+    animation: loader 30s infinite linear;
+    stroke-dasharray: 500;
+}
+@keyframes loader{
+    0%{
+        stroke-dashoffset: 500;
+    }
+    50%{
+        stroke-dashoffset: 250
+    }
+    100%{
+        stroke-dashoffset: 0;
+        
+    }
+}
+.sidebar .link_option{
+    width: 100%;
+    position: relative;
+    top: 25%;
+    cursor: pointer; 
+    transform: rotate(270deg) translate(-45%,25%);
+}
+
+.sidebar .link_option .share_button{
+    font-family: 'Righteous', cursive;
+    font-size: 2vh;
+    color: #B7B6B5;
+    text-align: center;
+}
+.sidebar .link_option .share_button:hover{
+    color: #f3f3f3;
 }
  .nav_menu{
     position: fixed;
@@ -200,7 +242,7 @@ body{
     text-align: right;
 }
 .service_slider .service_slider_controls .next_service{
-    font-size: 7vh;
+    font-size: 6vh;
     font-family: 'Abril Fatface', cursive;
     position: absolute;
     color: transparent;
@@ -215,8 +257,8 @@ body{
     -webkit-text-stroke-color: #f3f3f3;
 }
 .service_slider .service_slider_controls .switch_left{
-    width: 6%;
-    height: 6vh;
+    width: 70px;
+    height: 70px;
     border: #B7B6B5 solid 1px;
     position: absolute;
     bottom: 5vh;
@@ -225,11 +267,11 @@ body{
     cursor: pointer;
 }
 .service_slider .service_slider_controls .switch_left svg{
-    margin: 1.4vh;
+    margin: 1.5vh;
 }
 .service_slider .service_slider_controls .switch_right{
-    width: 6%;
-    height: 6vh;
+    width: 70px;
+    height: 70px;
     background:#4D6094;
     position: absolute;
     bottom: 5vh;
@@ -238,6 +280,6 @@ body{
     cursor: pointer;
 }
 .service_slider .service_slider_controls .switch_right svg{
-    margin: 1.4vh;
+    margin: 1.5vh;
 }
 
