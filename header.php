@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cisolink</title>
+    <title><?php the_title()?> | CISOLINK d.o.o. za informacione sisteme i tehnologije </title>
 <head>
 
     <?php wp_head();?>
@@ -11,7 +11,7 @@
 
 <body <?php body_class();?>>
 
-
+<div class="pagewrapper">
     <div class="sidebar">
         <a href="/wordpress">
             <div class="logo"></div>
@@ -20,7 +20,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="441" viewBox="0 0 15 441">
                 <g transform="translate(-76 -252)">
                     <line y2="350" transform="translate(83.5 307.5)" fill="none" stroke="#a4a4a4" stroke-width="2" />
-                    <line x2="350" transform="translate(83.5 307.5) rotate(90)" fill="none" stroke="#456bd1"
+                    <line class="load" x2="350" transform="translate(83.5 307.5) rotate(90)" fill="none" stroke="#456bd1"
                         stroke-width="4" />
                     <g transform="translate(76 252)" fill="none" stroke="#456bd1" stroke-width="4">
                         <circle cx="7.5" cy="7.5" r="7.5" stroke="none" />
@@ -60,7 +60,7 @@
     <div class="nav_menu">
         <ul>
             <li><a href="/wordpress/o-nama">O nama</a></li>
-            <li><a href="#">Usluge</a></li>
+            <li><a href="/wordpress/category/service/">Usluge</a></li>
             <li><a href="#">Informacije</a></li>
             <li><a href="#">Kontaktirajte nas</a></li>
         </ul>

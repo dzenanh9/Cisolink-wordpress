@@ -2,13 +2,53 @@
 body{
     margin: 0;
     padding: 0;
-    background: #0D0D0D;
+    background: #100F0F;
+    overflow: hidden;
 }
+::-webkit-scrollbar {
+    width: 0;
+  }
 .pagewrapper{
     width: 100%;
     height: 100vh;
 }
+.pagewrapper .main_content{
+    width: 50%;
+    height: 100%;
+    text-align: left;
+    position: absolute;
+    top: 0;
+    left: 12%;
+    color: #989695;
+    font-size:2vh;
+    font-family: 'Open Sans', sans-serif;
+    overflow-y: scroll;
+    }
+.pagewrapper .main_content h1{
+    font-family: 'Abril fatface', cursive;
+    font-size: 100pt;
+    color: #F3F3F3;
+    }
+.pagewrapper .main_content svg{
+    position: fixed;
+    right: 30%;
+    bottom: 1%;
+}
+.pagewrapper .main_content .content_display{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+    
+.pagewrapper .main_content .content_display p{
+    width: 70%;
+    display: inline-block;
+    text-align: left;
 
+    }
+
+
+    
 .sidebar{
     position: fixed;
     top:0;
@@ -37,14 +77,14 @@ body{
 
 .sidebar .slide_loader svg .load{
     animation: loader 30s infinite linear;
-    stroke-dasharray: 500;
+    stroke-dasharray: 350;
 }
 @keyframes loader{
     0%{
-        stroke-dashoffset: 500;
+        stroke-dashoffset: 350;
     }
     50%{
-        stroke-dashoffset: 250
+        stroke-dashoffset: 175
     }
     100%{
         stroke-dashoffset: 0;
@@ -283,3 +323,128 @@ body{
     margin: 1.5vh;
 }
 
+.pagewrapper .page_content{
+    width: 100%;
+    height: 100vh;
+    text-align: left;
+    color: #989695;
+    font-size:2vh;
+    font-family: 'Open Sans', sans-serif;
+    background: url("..//images/serbg1.jpg")center no-repeat ;
+    background-size: cover;
+
+    }
+.pagewrapper .page_content .service_overlay{
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background-color: #100F0F;
+        opacity: 0.7;
+    }
+.pagewrapper .page_content h1{
+    top: 5%;
+    left: 15%;
+    position: absolute;
+    font-family: 'Abril fatface', cursive;
+    font-size: 6vw;
+    color: #F3F3F3;
+    }
+
+
+  
+.pagewrapper .page_content .service_wrapper{
+    overflow-y: hidden;
+    overflow-x: scroll;
+    position: absolute;
+    top: 35%;
+    left: 15%;
+    width: 85%;
+    height: 50%;
+}
+.pagewrapper .page_content .service_wrapper #secondline{
+    position: absolute;
+    left:5.5% ;
+    bottom: 6%
+}
+
+.pagewrapper .page_content .service_wrapper h1{
+    position: static;
+    font-family: 'Abril fatface', cursive;
+    font-size: 5vw;
+    color: #F3F3F3;
+    margin: 0;
+}
+.pagewrapper .page_content .service_wrapper p{
+        width: 70%;
+        text-align: left;
+        float: left;
+}
+
+.pagewrapper .page_content .service_wrapper .servicebox{
+    width: 650px;
+    height: 200px;
+    position: relative;
+    padding: 25px;
+    transition: .5s;
+}
+.pagewrapper .page_content .service_wrapper .servicebox .firstborder svg{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+}
+.pagewrapper .page_content .service_wrapper .servicebox .secondborder svg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    
+}
+.pagewrapper .page_content .service_wrapper .servicebox .subtitlebox h2{ 
+    font-family: 'Righteous', cursive;
+    font-size: 1.4vw;
+    color: #B7B6B5;
+    text-align: left;
+    overflow:auto
+}
+
+.pagewrapper .page_content .service_wrapper .servicebox .toservicebutton{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 25px;
+    display: none;
+}
+
+.pagewrapper .page_content .service_wrapper .servicebox .service_number{
+    font-size: 2.5vw;
+    font-family: 'Abril Fatface', cursive;
+    color: transparent;
+    text-align: right;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #4D6094;
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+}
+
+.pagewrapper .page_content .service_wrapper .servicebox:hover{
+    background: #1592E6;
+}
+.pagewrapper .page_content .service_wrapper .servicebox:hover > .toservicebutton{
+    display: block;
+}
+.pagewrapper .page_content .service_wrapper .servicebox:hover > .service_number{
+    -webkit-text-stroke-color:transparent;
+    color: #F3F3F3;
+}
+.pagewrapper .page_content .service_wrapper .servicebox:hover > .subtitlebox h2{
+    color: #F3F3F3;
+}
