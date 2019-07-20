@@ -1,58 +1,107 @@
-// window.onscroll = function() {scroll_indicator()};
 
-// function scroll_indicator() {
+
+//Hamburger menu 
+
+var menuBtn = $('a.menu-btn'),
+    menuBtnBlock = menuBtn.find('div.menu-btn-block');
+menuBtn.on('click', function () {
+
+    menuBtnBlock.toggleClass('on');
+    if(menuBtnBlock.hasClass('on')){
+        $('.menu-overall').addClass('on');
+        $('.menu-overall').animate({
+            top:"0"
+        },500, function(){
+        
+        })
+    }else{
+        $('.menu-overall').animate({
+            top:"-100%"
+        },500, function(){
+            $('.menu-overall').removeClass('on');
+        })
+
+        
+    }
     
-//   var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-//   var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-//   var scrolled = (winScroll / height) * 100;
-//   document.getElementById("scroll_indicator").stroke_dashoffset = scrolled + "%";
-// }
+
+});
 
 
 
 
+TriggerClick = 0;
+$(".detail_expand").click(function () {
 
-/* <table id="service_wrapper">
-            <tr id=firstline>
-                <td>
-                    <div class="servicebox">
-                        <div class="firstborder"><svg xmlns="http://www.w3.org/2000/svg" width="60.5" height="161" viewBox="0 0 60.5 161"><g transform="translate(-525 -383)"><line x2="50" transform="translate(340.5 539.5)" fill="none" stroke="#4d6094" stroke-width="1"/><g transform="translate(330 534)" fill="none" stroke="#456bd1" stroke-width="2"><circle cx="5" cy="5" r="5" stroke="none"/><circle cx="5" cy="5" r="4" fill="none"/></g><line x2="150" transform="translate(334.5 383.5) rotate(90)" fill="none" stroke="#4d6094" stroke-width="1"/><line x2="20" transform="translate(334.5 383.5)" fill="none" stroke="#4d6094" stroke-width="1"/></g></svg></div>                     
-                        <div class="titlebox"><h1>Pantheon</h1></div>
-                        <div class="subtitlebox"><h2>Za jednostavno vođenje preduzeća</h2></div>
-                        <div class="service_number">01</div>
-                        <div class="toservicebutton"><svg xmlns="http://www.w3.org/2000/svg" width="26.981" height="30.732" viewBox="0 0 26.981 30.732"><g transform="translate(-3622.68 -1236.634)"><path d="M0,0H30" transform="translate(3623.18 1237.5) rotate(30)" fill="none" stroke="#f3f3f3" stroke-width="2"></path><line x2="30" transform="translate(3623.179 1266.5) rotate(-30)" fill="none" stroke="#f3f3f3" stroke-width="2"></line></g></svg></div>
-                    </div>
-                </td>
-                <td>
-                    <div class="servicebox">
-                        <div class="firstborder"><svg xmlns="http://www.w3.org/2000/svg" width="60.5" height="161" viewBox="0 0 60.5 161"><g transform="translate(-525  -383)"><line x2="50" transform="translate(340.5 539.5)" fill="none" stroke="#4d6094" stroke-width="1"/><g transform="translate(330 534)" fill="none" stroke="#456bd1" stroke-width="2"><circle cx="5" cy="5" r="5" stroke="none"/><circle cx="5" cy="5" r="4" fill="none"/></g><line x2="150" transform="translate(334.5 383.5) rotate(90)" fill="none" stroke="#4d6094" stroke-width="1"/><line x2="20" transform="translate(334.5 383.5)" fill="none" stroke="#4d6094" stroke-width="1"/></g></svg></div>                     
-                        <div class="titlebox"><h1>Pantheon</h1></div>
-                        <div class="subtitlebox"><h2>Za jednostavno vođenje preduzeća</h2></div>
-                        <div class="service_number">01</div>
-                        <div class="toservicebutton"><svg xmlns="http://www.w3.org/2000/svg" width="26.981" height="30.732" viewBox="0 0 26.981 30.732"><g transform="translate(-3622.68 -1236.634)"><path d="M0,0H30" transform="translate(3623.18 1237.5) rotate(30)" fill="none" stroke="#f3f3f3" stroke-width="2"></path><line x2="30" transform="translate(3623.179 1266.5) rotate(-30)" fill="none" stroke="#f3f3f3" stroke-width="2"></line></g></svg></div>
-                    </div>
-                </td>
-            </tr>
-            <tr id=secondline>
-                <td>
-                    <div class="servicebox">
-                        <div class="secondborder"><svg xmlns="http://www.w3.org/2000/svg" width="350.5" height="160" viewBox="0 0 350.5 160"><g transform="translate(-376 -539)"><line x2="380" transform="translate(340.5 543.5)" fill="none" stroke="#4d6094" stroke-width="1"/><g transform="translate(330 539)" fill="none" stroke="#456bd1" stroke-width="2"><circle cx="5" cy="5" r="5" stroke="none"/><circle cx="5" cy="5" r="4" fill="none"/></g><line x2="150" transform="translate(334.5 548.5) rotate(90)" fill="none" stroke="#4d6094" stroke-width="1"/><line x2="20" transform="translate(334.5 698.5)" fill="none" stroke="#4d6094" stroke-width="1"/></g></svg></div>                     
-                        <div class="titlebox"><h1>Networking</h1></div>
-                        <div class="subtitlebox"><h2>Lorem Ipsum is simply dummy text</h2></div>
-                        <div class="service_number">02</div>
-                        <div class="toservicebutton"><svg xmlns="http://www.w3.org/2000/svg" width="26.981" height="30.732" viewBox="0 0 26.981 30.732"><g transform="translate(-3622.68 -1236.634)"><path d="M0,0H30" transform="translate(3623.18 1237.5) rotate(30)" fill="none" stroke="#f3f3f3" stroke-width="2"></path><line x2="30" transform="translate(3623.179 1266.5) rotate(-30)" fill="none" stroke="#f3f3f3" stroke-width="2"></line></g></svg></div>
-                    </div>
-                </td>
-                <td>
-                    <div class="servicebox">
-                        <div class="secondborder"><svg xmlns="http://www.w3.org/2000/svg" width="350.5" height="160" viewBox="0 0 350.5 160"><g transform="translate(-376 -539)"><line x2="380" transform="translate(340.5 543.5)" fill="none" stroke="#4d6094" stroke-width="1"/><g transform="translate(330 539)" fill="none" stroke="#456bd1" stroke-width="2"><circle cx="5" cy="5" r="5" stroke="none"/><circle cx="5" cy="5" r="4" fill="none"/></g><line x2="150" transform="translate(334.5 548.5) rotate(90)" fill="none" stroke="#4d6094" stroke-width="1"/><line x2="20" transform="translate(334.5 698.5)" fill="none" stroke="#4d6094" stroke-width="1"/></g></svg></div>                     
-                        <div class="titlebox"><h1>Networking</h1></div>
-                        <div class="subtitlebox"><h2>Lorem Ipsum is simply dummy text</h2></div>
-                        <div class="service_number">02</div>
-                        <div class="toservicebutton"><svg xmlns="http://www.w3.org/2000/svg" width="26.981" height="30.732" viewBox="0 0 26.981 30.732"><g transform="translate(-3622.68 -1236.634)"><path d="M0,0H30" transform="translate(3623.18 1237.5) rotate(30)" fill="none" stroke="#f3f3f3" stroke-width="2"></path><line x2="30" transform="translate(3623.179 1266.5) rotate(-30)" fill="none" stroke="#f3f3f3" stroke-width="2"></line></g></svg></div>
-                    </div>
-                </td>
-                
-            </tr>
-            
-        </table> */
+    $(".service_details").toggleClass("active");
+
+    $(".service_details").children(":nth-child(n)").toggleClass('hidden');
+    $(".service_details").children(":first").removeClass('hidden');
+    $(".service_details").children(":first").toggleClass('active');
+    $(".service_details").children(":nth-child(2)").removeClass('hidden');
+    $(".service_details").children(":nth-child(2)").toggleClass('prepare');
+})
+
+$(".footer-nav").on('click' ,function(){
+    $(".footer-nav").animate({
+        height: "50vh"
+    },200,function(){
+
+    })
+})
+//Main slideshow
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+// Autoslide image controls
+function autoslide(){
+    showSlides(slideIndex += 1);
+}
+
+var timeout;
+//clear timer
+function timeout_clear() {
+    clearTimeout(timeout);
+}
+//set timer
+function timeout_init() {
+    timeout = setTimeout(autoslide, 30000);
+    //animation loader
+    $(".loader").stop()
+    $('.loader').animate({
+        height:"0%"
+    },10,function(){
+        $('.loader').animate({
+            height:"100%"
+        },30000)
+    })
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("slide_item");
+  var next_slide = document.getElementsByClassName("next_item");
+  if (n > slides.length) {slideIndex = 1} 
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none"; 
+  }
+  for (i = 0; i < next_slide.length; i++) {
+    next_slide[i].style.display = "none"; 
+  }
+  slides[slideIndex-1].style.display = "block";
+  next_slide[slideIndex-1].style.display = "block";
+timeout_clear()
+timeout_init()
+}
+
+

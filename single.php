@@ -1,7 +1,7 @@
 <?php get_header();?>
 
 
-<div class="content">
+<div class="main_content">
     <h1><?php the_title()?></h1>
     <div class="content_display">
         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="692" viewBox="0 0 15 692">
@@ -25,6 +25,12 @@
         <?php endwhile; endif;?>
 
 
+    </div>
+</div>
+
+<div class="footer-nav">
+    <div class="nav-word-list">
+    <?php wp_nav_menu(array('theme_loaction'=>'top-menu'),);?>
     </div>
 </div>
 

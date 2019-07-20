@@ -8,46 +8,129 @@ body{
 ::-webkit-scrollbar {
     width: 0;
   }
+  a, a:visited, a:hover, a:active {
+    color: inherit;
+    text-decoration: none;
+  }
 .pagewrapper{
     width: 100%;
     height: 100vh;
 }
-.pagewrapper .main_content{
-    width: 50%;
-    height: 100%;
-    text-align: left;
+.pagewrapper .footer-nav{
+    width: 100%;
+    height: 5vh;
     position: absolute;
+    bottom: 0;
+    background: #1592E6;
+    display: none;
+    cursor: pointer;
+}
+.pagewrapper .footer-nav::before{
+    content: url("..//images/nav-toggle.svg");
+    position: absolute;
+    left: 50%;
     top: 0;
-    left: 12%;
+    transform: translate(-50%,-47%);
+    cursor: pointer;
+}
+.pagewrapper .footer-nav .nav-word-list{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.pagewrapper .footer-nav .nav-word-list ul{
+    list-style-type: none;
+    margin:0 ;
+    padding: 0;
+    margin: 50px 0;
+}
+.pagewrapper .footer-nav .nav-word-list ul li{
+    display: block;
+    margin: 25px 0 ;
+    position: relative;
+}
+.pagewrapper .footer-nav .nav-word-list ul li a{
+    color: #f3f3f3;
+    text-decoration: none;
+    font-family: 'Righteous', cursive;
+    font-size: 4vw;
+    cursor: pointer;
+    transition: .5s
+}
+.pagewrapper .footer-nav .nav-word-list ul li a::before{
+    content: '';
+    width: 30%;
+    height: 2px;
+    background: #F3F3F3;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    display: none;
+}
+.pagewrapper .footer-nav .nav-word-list ul li a::after{
+    content: '';
+    width: 30%;
+    height: 2px;
+    background: #F3F3F3;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    display: none;
+}
+
+.pagewrapper .footer-nav .nav-word-list ul li:hover > .pagewrapper .footer-nav .nav-word-list ul li a::before{
+    display: block;
+}
+.pagewrapper .footer-nav .nav-word-list ul li a:hover > li::after{
+    display: block;
+}
+
+.pagewrapper .main_content{
+    width: 60%;
+    text-align: left;
+    position: relative;
+    margin-left: 11%;
     color: #989695;
-    font-size:2vh;
+    font-size:2vw;
     font-family: 'Open Sans', sans-serif;
-    overflow-y: scroll;
+    
     }
 .pagewrapper .main_content h1{
     font-family: 'Abril fatface', cursive;
-    font-size: 100pt;
+    font-size: 7vw;
     color: #F3F3F3;
+    animation: apper .5s linear
     }
-.pagewrapper .main_content svg{
-    position: fixed;
-    right: 30%;
-    bottom: 1%;
-}
+    @keyframes apper{
+        0%{
+            transform: translate(0,100%);
+            opacity: 0;
+        }
+
+        100%{
+            transform: translate(0%,0);
+            opacity: 1;
+        }
+    }
 .pagewrapper .main_content .content_display{
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
+        width: 100%;
+        height: 60vh; 
+        padding-bottom: 200px;
+        overflow-y: scroll;
+        animation: apper 1.5s linear
 }
-    
+.pagewrapper .main_content .content_display svg{
+    position: fixed;
+    right: 25%;
+    bottom: 2%;
+    transform: translate(-160%,0%);
+}
+
 .pagewrapper .main_content .content_display p{
-    width: 70%;
+    width: 40vw;
     display: inline-block;
     text-align: left;
-
-    }
-
-
+}
     
 .sidebar{
     position: fixed;
@@ -69,34 +152,47 @@ body{
 .sidebar .slide_loader{
     position: relative;
     top: 15%;
+    left: 50%;
+    width: 2px;
+    height: 40%;
+    background: #a4a4a4;
+    margin: 0;
+}
+.sidebar .slide_loader::before{
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 4px #456bd1 solid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-40%,-200%)
+}
+.sidebar .slide_loader::after{
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 4px #A4A4A4 solid;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(-40%,200%)
+}
+.sidebar .slide_loader .loader{
+    width: 3px;
+    height: 1%;
+    background: #456bd1;
+    margin: 0;
 }
 
-.sidebar .slide_loader svg{
-    height: 45%;
-}
-
-.sidebar .slide_loader svg .load{
-    animation: loader 30s infinite linear;
-    stroke-dasharray: 350;
-}
-@keyframes loader{
-    0%{
-        stroke-dashoffset: 350;
-    }
-    50%{
-        stroke-dashoffset: 175
-    }
-    100%{
-        stroke-dashoffset: 0;
-        
-    }
-}
 .sidebar .link_option{
     width: 100%;
-    position: relative;
-    top: 25%;
+    position: absolute;
+    bottom: 5%;
     cursor: pointer; 
-    transform: rotate(270deg) translate(-45%,25%);
+    transform: rotate(270deg) ;
 }
 
 .sidebar .link_option .share_button{
@@ -139,17 +235,181 @@ body{
 .nav_menu ul li a:hover{
     color: #f3f3f3;  
 }
+.menu-toggle{
+    position: fixed;
+    top: 2em;
+    right: 5%;
+    z-index: 100;
+   display: none;
+   transition: .5s
+  }
+  .menu-btn {
+    display: block;
+    width: 35px;
+    height: 20px;
+    margin: 20% auto 0 auto;
+  }
+.menu-btn-block {
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 3px;
+    transform-origin: 0 50%;
+    transition: transform 0.3s ease;
+  }
+  
+  .menu-btn-block {
+    margin: 10px 0;
+  }
+  
+  .menu-btn-block.on {
+    margin: 20px 0;
+    background-color: #fff;
+  }
+  .menu-btn-block.top.on {
+    transform: rotate(40.682deg);
+  }
+  .menu-btn-block.bottom.on {
+    transform: rotate(-40.682deg);
+  }
+
+  .menu-overall{
+      display:none;
+      width: 100%;
+      height: 100vh;
+      background:#100F0F;
+      position: fixed;
+      z-index: 99;
+      animation: slidedown .5s linear
+  }
+  .menu-overall > *{
+    animation: apper 2s linear 
+  }
+.menu-overall.on{
+    display: block;
+}
+  @keyframes slidedown {
+      0%{
+          top: -100%;
+      }
+      100%{
+          top: 0;
+      }
+  }
+  .menu-overall .menu-word-list{
+    color: #B7B6B5;
+    font-family: 'Righteous', cursive;
+    font-size: 5vw;
+    margin: 25% 25%;
+  }
+
+  .menu-overall .menu-word-list ul{
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+    margin: 3.9vh 0;
+}
+.menu-overall .menu-word-list ul li{
+    display: block;
+    margin: 25px 0 ;
+}
+.menu-overall .menu-word-list ul li a{
+    color: #B7B6B5;
+    text-decoration: none;
+    font-family: 'Righteous', cursive;
+    font-size: 5vw;
+    cursor: pointer;
+    transition: .5s
+    
+}
+.menu-overall .menu-word-list ul li a:hover{
+    color: #f3f3f3;  
+}
+  .menu-overall .menu-link-list{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 10vh;
+      text-align: center
+  }
+  .menu-overall .menu-link-list .menu-link{
+      width: 7%;
+      margin: 1% 3%;
+      padding: 0;
+      display: inline-block;
+
+  }
+  .menu-overall .menu-link-list a svg{
+      width: 100%;
+      fill:#B7B6B5;
+  }
+
+  .menu-overall .menu-link-list a svg:hover{
+      fill: #F3F3F3;
+  }
+
+.hidden{
+    display: none;
+}
 .service_details{
     width: 25%;
     height: 100vh;
-    background: #4D6094;
     position: fixed;
     right: 0;
     top: 0;
+    z-index: 100;
+}
+
+.service_details .service_item{
+    width: 100%;
+    height: 100%;
+    background: #100F0F;
+    position: absolute;
+}
+.service_details .service_item.active{
+    width: 90%;
+}
+.service_details .service_item .service_wrapp{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #4D6094;
+}
+.service_details .service_item.active .service_wrapp{
+    width: 50%;
+    background: #4D6094;
+}
+.service_item .service_intro{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+.service_item.active .service_intro{
+    display: block;
+}
+.service_details.active{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+}
+.service_details .service_item.prepare{
+    width: 30%;
+    right: -20%;
+    background: #989695;
+}
+.service_details .service_item.prepare .service_wrapp{
+    background: #989695;
 }
 .service_details .service_detail_img{
     width: 100%;
-    height: 50vh;
+    height: 50%;
     
 }
 .service_details .service_detail_img img{
@@ -158,169 +418,252 @@ body{
 }
 .service_details .service_detail_desc{
     width: 100%;
-    height: 100%;
+    height: 50%;
+    position: relative;
 }
 .service_details .service_detail_desc .detail_info{
     width: 100%;
     height: 10%;
+    position: relative;
 }
 .service_details .service_detail_desc .detail_info .detail_index{
     font-family: 'Abril Fatface', cursive;
     font-size: 1.7vw;
     color: #f3f3f3;
-    display: inline-block;
-    width: 45%;
-    margin-left:5%;
-    margin-top:2%;
+    position: absolute;
+    top: 7%;
+    left: 5%;
+    
 }
 .service_details .service_detail_desc .detail_info .detail_small_title{
     font-family: 'Abril Fatface', cursive;
     font-size: 1.5vw;
     color: #f3f3f3;
-    display: inline-block;
-    text-align: right;
-    width: 45%;
+    position: absolute;
+    top: 7%;
+    right: 5%;
+    
 }
 .service_details .service_detail_desc .detail_tag_line{
     font-family: 'Righteous', cursive;
     font-size: 2.2vw;
     color: #f3f3f3;
-    display: inline-block;
     width: 90%;
-    margin-left:5%;
-    margin-top:2%;
+    position: absolute;
+    top: 17.5%;
+    left: 5%;
+    
 }
-.service_details .service_detail_desc .detail_controls{
+.service_details .service_item .detail_controls{
     width: 100%;
     height: 5%;
-    text-align: center;
     position: absolute;
     bottom: 0;
 }
-.service_details .service_detail_desc .detail_controls .detail_expand{
+.service_details .service_item .detail_controls .detail_expand{
     font-family: 'Abril Fatface', cursive;
     font-size: 1.4vw;
     color: #f3f3f3;
-    width: 50%;
     text-align: left;
     cursor: pointer;
-    display: inline-block;
+    position: absolute;
+    top: 7%;
+    left: 5%;
+
 }
-.service_details .service_detail_desc .detail_controls .detail_switch_controls{
-    width: 30%;
-    text-align: right;
-    display: inline-block;
+.service_details .service_item .detail_controls .detail_switch_controls{
+    position: absolute;
+    top: 7%;
+    right: 5%;
 }
-.service_details .service_detail_desc .detail_controls .detail_switch_controls .switch_left{
-    display: inline-block;
-    cursor: pointer;
-}
-.service_details .service_detail_desc .detail_controls .detail_switch_controls .switch_left svg{
-    width: 70%
-}
-.service_details .service_detail_desc .detail_controls .detail_switch_controls .switch_right{
+.service_details .service_item .detail_controls .detail_switch_controls .switch_left{
     display: inline-block;
     cursor: pointer;
 }
-.service_details .service_detail_desc .detail_controls .detail_switch_controls .switch_right svg{
+.service_details .service_item .detail_controls .detail_switch_controls .switch_left svg{
     width: 70%
+}
+.service_details .service_item .detail_controls .detail_switch_controls .switch_right{
+    display: inline-block;
+    cursor: pointer;
+}
+.service_details .service_item .detail_controls .detail_switch_controls .switch_right svg{
+    width: 70%
+}
+.service_details .service_item .service_content{
+    width: 70%;
+    margin: 5% 10%;
+}
+
+.service_details .service_item .service_content  h1{
+    font-size: 5vw;
+    font-family: 'Abril Fatface', cursive; 
+    color: #F3F3F3;
+    position: relative;
+}
+.service_details .service_item .service_content  h1::after{
+    content: '';
+    width: 20%;
+    height: 3px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #4D6094;
+}
+.service_details .service_item .service_content  p{
+    font-size: 3vw;
+    font-family: 'Open Sans', sans-serif; 
+    padding: 0;
+    color:#989695;
+}
+.service_details .service_item .service_content .gotobutton{
+    width: 25%;
+    padding-bottom: 2px;
+    color: #4D6094;
+    font-size: 3vw;
+    font-family: 'Righteous', cursive;
+    border-bottom: 2px dashed #4D6094;
+    cursor: pointer;
+}
+.service_details .service_item .service_intro .backbutton{
+    width: 100%;
+    height: 10vh;
+    background: #242424;
+    font-family: 'Righteous', cursive;
+    font-size: 1.4vw;
+    color:#F3F3F3;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    cursor: pointer;
+}
+.service_details .service_item .service_intro .backbutton svg{
+    position: absolute;
+    top: 25%;
+    left: 41%;
 }
 .service_slider{
     width: 100%;
     height: 100vh;
     
 }
-.service_slider .service{
-    width: 75%;
+.service_slider .slide_item{
+    width: 100%;
     height: 100vh;
     position: relative
 }
-.service_slider .service #service_1{
+.service_slider .slide_item img{
     width: 100%;
-    height: 100vh;
-    background: url('..//images/b1.jpg') center no-repeat ;
-    background-size: cover;
+    height: 100%;
 }
-.service_slider .service h1{
+.service_slider .slide_item h1{
     font-family: 'Abril Fatface', cursive;
     font-size: 7vw;
     color: #f3f3f3;
     text-align: left;
     position: absolute;
-    top:50%;
-    transform: translate(50%,-100%);
+    top: 40%;
+    left: 30%;
+    transform: translate(-30%,-50%);
 }
-.service_slider .service h2{
+.service_slider .slide_item h2{
     width: 25vw;
     font-family: 'Righteous', cursive;
-    font-size: 1.4vw;
+    font-size: 1.6vw;
     color: #B7B6B5;
-    text-align: right;
+    text-align: left;
     position: absolute;
-    top:60%;
-    transform: translate(60%,-50%);
+    top: 60%;
+    left: 30%;
+    transform: translate(-25%,-50%);
 }
-.service_slider .service h1 #spec_img{
+.service_slider .slide_item h2::before{
+    content: '';
+    width: 20%;
+    height: 3px;
+    background: #456bd1;
+    position: absolute;
+    top:50%;
+    left:-25%;
+}
+.service_slider .slide_item h1 #spec_img{
     width: 5.5vw;
     height: 5.5vw;
     background: url('..//images/pa_circle_white.png') center no-repeat ;
     background-size: cover;
     display: inline-block;
 }
-.service_slider .service .service_overlay{
+.service_slider .slide_item .service_overlay{
     width: 100%;
     height: 100vh;
     background-color: #100F0F;
     opacity: 0.7;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .service_slider .service_slider_controls{
-    width: 55%;
+    width: 100%;
     height: 10vh;
     position: absolute;
-    bottom: 1vh;
-    left: 15%;
-    text-align: right;
+    bottom: 0;
+    left: 0;
+    text-align: left;
+}
+.service_slider .service_slider_controls::after{
+    content: '';
+    width: 22%;
+    height: 3px;
+    background: #A4A4A4;
+    position: absolute;
+    top: 25px;
+    right: 30%;
+    
+
 }
 .service_slider .service_slider_controls .next_service{
-    font-size: 6vh;
+    font-size: 3vw;
     font-family: 'Abril Fatface', cursive;
     position: absolute;
     color: transparent;
-    bottom: 5vh;
-    right: 35%;
+    bottom: 50%;
+    left: 20%;
     text-align: center;
     cursor: pointer;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #B7B6B5;
+    
+
 }
+
 .service_slider .service_slider_controls .next_service:hover{
     -webkit-text-stroke-color: #f3f3f3;
 }
 .service_slider .service_slider_controls .switch_left{
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     border: #B7B6B5 solid 1px;
     position: absolute;
-    bottom: 5vh;
-    left: 1%;
+    top: 0;
+    left: 11%;
     text-align: center;
     cursor: pointer;
 }
 .service_slider .service_slider_controls .switch_left svg{
-    margin: 1.5vh;
+    margin: 9px;
 }
 .service_slider .service_slider_controls .switch_right{
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     background:#4D6094;
     position: absolute;
-    bottom: 5vh;
-    right: 1%;
+    top: 0;
+    right: 26%;
     text-align: center;
     cursor: pointer;
 }
 .service_slider .service_slider_controls .switch_right svg{
-    margin: 1.5vh;
+    margin: 9px;
 }
 
 .pagewrapper .page_content{
@@ -407,11 +750,16 @@ body{
     margin: 0;
     
 }
+.pagewrapper .page_content .service_wrapper .servicebox .titlebox h1{
+    width: 100%;
+    height: 100%;
+    font-size: 3.5vw
+}
 .pagewrapper .page_content .service_wrapper .servicebox .subtitlebox h2{ 
     font-family: 'Righteous', cursive;
     font-size: 1.4vw;
     color: #B7B6B5;
-    text-align: left;
+    text-align: center;
     overflow:auto
 }
 
@@ -448,3 +796,8 @@ body{
 .pagewrapper .page_content .service_wrapper .servicebox:hover > .subtitlebox h2{
     color: #F3F3F3;
 }
+#small-screen{
+    display: none;
+}
+
+  

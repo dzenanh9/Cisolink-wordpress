@@ -1,0 +1,289 @@
+
+/* Responsive design  */
+
+  /* Tablet Styles and (min-width: 401px) */
+  @media only screen  and (max-width: 960px) {
+    
+    .pagewrapper .footer-nav{
+        display: block;
+    }
+    .sidebar{
+        width: 100%;
+        height: 10vh;
+        
+    }
+    .sidebar::after{
+        content: '';
+        width: 0.5px;
+        height: 100vh;
+        background:#A4A4A4;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: -1;
+        opacity: .5;
+    } 
+    .sidebar .logo{
+        width: 20%;
+    }
+    .sidebar .slide_loader{
+        display: none;
+    }
+    .sidebar .link_option{
+        display: none;
+    }
+
+    .nav_menu{
+        display: none;
+    }
+
+    .menu-toggle{ 
+       display: block;
+      }
+    .service_slider .slide_item{
+        width: 100%;
+    }
+
+    .service_slider .slide_item::before{
+        content: '';
+        width: 15px;
+        height: 15px;
+        border-radius: 50% ;
+        border: 5px solid #456BD1;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%,0);
+        z-index: 97;
+
+    }
+    .service_slider .slide_item::after{
+        content: url("..//images/arrow.svg");
+        width: 20px;
+        height: 45px;
+        position: absolute;
+        bottom: 3%;
+        left: 50%;
+        transform: translate(-50%,0);
+        animation: jumpy 1s infinite cubic-bezier(0.165, 0.84, 0.44, 1)
+    }
+    @keyframes jumpy {
+        0%{
+            bottom: 1%;
+            opacity: .5;
+            
+        }
+        100%{
+            bottom: 3%
+        }
+        
+    }
+    .service_slider .slide_item h1{
+        text-align: center;
+        width: 100%;
+        transform: translate(0,0);
+    }
+    .service_slider .slide_item h2{
+        transform: translate(0,0);
+        font-size: 2vw;
+        width: 100%;
+        text-align: center;
+        top: 65%
+    }
+    .service_slider .slide_item h2::before{
+        content: '';
+        width: 15%;
+        height: 2px;
+        background:#4d6094;
+        position: absolute;
+        top: -100%;
+        left: 50%;
+        transform: translate(-50%,-50%)
+    }
+
+    .service_slider .slide_item h2 svg{
+        display: none;
+    } 
+
+    .service_slider .service_slider_controls{
+        width: 100%;
+        top: 20%;
+        right: 0;
+    }
+    .service_slider .service_slider_controls .next_service{
+        right: 0;
+        font-size: 4vw;
+    }
+    .service_slider .service_slider_controls .next_service::before{
+        content:'Next service';
+        font-size: 3vw;
+        font-family: 'Abril Fatface', cursive;
+        color: #f3f3f3;
+        position: absolute;
+        top: -60%;
+    }
+    .service_slider .service_slider_controls .next_service::after{
+        content: '';
+        width: 50%;
+        height: 1px;
+        background: #f3f3f3;
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translate(-60%, 0)
+    
+    }
+    .service_slider .service_slider_controls .switch_right{
+        display: none;
+    }
+    .service_slider .service_slider_controls .switch_left{
+        display: none;
+    }
+
+    .service_details{
+        display: none;
+        width: 100%;
+        height: 90vh;
+        z-index: 98;
+        top: 10vh;
+    }
+    .service_details .service_detail_desc .detail_info .detail_index{
+        display: none;
+    }
+    .service_details .service_detail_desc .detail_info .detail_small_title{
+        top: 20%;
+        right: 0;
+        left: 50%;
+        font-size: 5vw;
+        transform: translate(-30%,0)
+    }
+    .service_details .service_detail_desc .detail_tag_line{
+        top: 50%;
+        left: 50%;
+        text-align:center;
+        font-size: 6vw;
+        transform: translate(-50%,-50%);
+    }
+    .service_details .service_detail_desc .detail_tag_line::after{
+        content: 'Swipe right  ' url('../images/rightArrows.svg');
+        font-family: 'Abril Fatface', cursive;
+        font-size: 4vw;
+        color: #f3f3f3;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,350%);
+
+    }
+    .service_details .service_item .detail_controls{
+        display: none;
+    }
+    
+    .service_details .service_intro{
+        width: 100%;
+        
+    }
+    .service_details .service_intro::after{
+        content: 'Swipe back' url('../images/rightArrows.svg');
+        font-family: 'Abril Fatface', cursive;
+        font-size: 4vw;
+        color: #f3f3f3;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        
+
+    }
+    .service_details .service_intro .backbutton{
+        display: none;
+    }
+
+    .pagewrapper .main_content{
+        width: 76%;
+        margin:20% auto;
+    }
+    
+    .pagewrapper .main_content svg{
+        display: none;
+    }
+    .pagewrapper .main_content .content_display{
+        width: 100%;
+        height: 55vh;
+        font-size:4vw;
+    }
+    .pagewrapper .main_content .content_display p{
+        width: 100%;
+        
+    }
+    .pagewrapper .main_content .wp-block-image .alignright{
+        margin-left: auto; 
+        margin-right: auto;
+        float: none;
+        animation: apper .5s linear
+    }
+    #full-screen{
+        display: none;
+    }
+    .pagewrapper .page_content .service_wrapper{
+        width: 100%;
+        height: 85%;
+        top: 15%;
+        left: 0;
+        position: relative;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+     #small-screen{
+        display: block;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }   
+    .pagewrapper .page_content .service_wrapper .servicebox{
+        width: 100%;
+        height: 200px;
+        padding: 0;
+        margin: 35px 0;
+        text-align: center;
+    }
+    .servicebox::before{
+        content: '';
+        width: 15px;
+        height: 15px;
+        border-radius: 50% ;
+        border: 5px solid #456BD1;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%,0);
+        z-index: 97;
+    }
+    .servicebox::after{
+        content: '';
+        width: 4px;
+        height: 25%;
+        background:  #456BD1;
+        position: absolute;
+        top: 87%;
+        left: 50%;
+        transform: translate(-50%,0);
+        z-index: 97;
+    }
+    .pagewrapper .page_content .service_wrapper .servicebox .titlebox h1{
+        font-size: 7.5vw;
+    }
+    .pagewrapper .page_content .service_wrapper .servicebox .subtitlebox h2{
+        font-size: 2.4vw;
+        text-align: center
+    }
+    .pagewrapper .page_content .service_wrapper .servicebox .subtitlebox p{
+        text-align: center;
+        width: 100%;
+    }
+
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+  
+}

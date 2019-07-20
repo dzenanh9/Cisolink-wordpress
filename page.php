@@ -12,9 +12,7 @@
 
         <?php endwhile; endif;?>
 
-
-    </div>
-    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="692" viewBox="0 0 15 692">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="692" viewBox="0 0 15 692">
             <g transform="translate(-76 -252)">
                 <line y2="663" transform="translate(83.5 266.5)" fill="none" stroke="#a4a4a4" stroke-width="2" />
                 <line id="scroll_indicator" y2="663" transform="translate(83.5 267.5)" fill="none" stroke="#456bd1" stroke-width="4" />
@@ -28,6 +26,8 @@
                 </g>
             </g>
         </svg>
+    </div>
+    
 </div>
 
 <?php get_footer();?>
