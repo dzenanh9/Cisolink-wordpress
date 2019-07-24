@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="62.981" height="30.732" viewBox="0 0 62.981 30.732"><g transform="translate(-1874.679 -1303.634)"><g transform="translate(-1712 67)"><path d="M0,0H30" transform="translate(3623.18 1237.5) rotate(30)" fill="none" stroke="#f3f3f3" stroke-width="2"/><line x2="30" transform="translate(3623.179 1266.5) rotate(-30)" fill="none" stroke="#f3f3f3" stroke-width="2"/></g><g transform="translate(-1748 67)"><path d="M0,0H30" transform="translate(3623.18 1237.5) rotate(30)" fill="none" stroke="#f3f3f3" stroke-width="2"/><line x2="30" transform="translate(3623.179 1266.5) rotate(-30)" fill="none" stroke="#f3f3f3" stroke-width="2"/></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 62.981 30.732">
+<g transform="translate(-1874.679 -1303.634)">
+<g transform="translate(-1712 67)">
+<path d="M0,0H30" transform="translate(3623.18 1237.5) rotate(30)" fill="none" stroke="#f3f3f3" stroke-width="2"/>
+<line x2="30" transform="translate(3623.179 1266.5) rotate(-30)" fill="none" stroke="#f3f3f3" stroke-width="2"/>
+</g>
+<g transform="translate(-1748 67)">
+<path d="M0,0H30" transform="translate(3623.18 1237.5) rotate(30)" fill="none" stroke="#f3f3f3" stroke-width="2"/>
+<line x2="30" transform="translate(3623.179 1266.5) rotate(-30)" fill="none" stroke="#f3f3f3" stroke-width="2"/>
+</g>
+</g>
+</svg>

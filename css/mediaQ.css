@@ -82,13 +82,15 @@
         text-align: center;
         width: 100%;
         transform: translate(0,0);
+        left: 0;
     }
     .service_slider .slide_item h2{
         transform: translate(0,0);
         font-size: 2vw;
         width: 100%;
         text-align: center;
-        top: 65%
+        top: 65%;
+        left: 0;
     }
     .service_slider .slide_item h2::before{
         content: '';
@@ -110,9 +112,14 @@
         top: 20%;
         right: 0;
     }
+    .service_slider .service_slider_controls::after{
+        display: none
+    }
     .service_slider .service_slider_controls .next_service{
-        right: 0;
+        left: 60%;
         font-size: 4vw;
+        text-align: left;
+        
     }
     .service_slider .service_slider_controls .next_service::before{
         content:'Next service';
@@ -121,21 +128,23 @@
         color: #f3f3f3;
         position: absolute;
         top: -60%;
+        transform: translate(0, 0)
     }
     .service_slider .service_slider_controls .next_service::after{
         content: '';
-        width: 50%;
+        width: 30%;
         height: 1px;
         background: #f3f3f3;
-        position: absolute;
-        top: 50%;
-        left: 0%;
-        transform: translate(-60%, 0)
+        position: fixed;
+        top: 23.5%;
+        left: 0;
+        transform: translate(0, 0)
     
     }
     .service_slider .service_slider_controls .switch_right{
         display: none;
     }
+    
     .service_slider .service_slider_controls .switch_left{
         display: none;
     }
@@ -147,57 +156,76 @@
         z-index: 98;
         top: 10vh;
     }
-    .service_details .service_detail_desc .detail_info .detail_index{
+    .service_details .service_items .service_front .item_details .item_index{
         display: none;
     }
-    .service_details .service_detail_desc .detail_info .detail_small_title{
-        top: 20%;
-        right: 0;
-        left: 50%;
-        font-size: 5vw;
-        transform: translate(-30%,0)
+    .service_details .service_items .service_front .item_details .item_title{
+        top: 10%;
+        right: 50%;
+        font-size: 30px;
+        transform: translate(50%,0);
     }
-    .service_details .service_detail_desc .detail_tag_line{
+    .service_details .service_items .service_front .item_details .item_tagline{
         top: 50%;
         left: 50%;
         text-align:center;
-        font-size: 6vw;
+        font-size: 40px;
         transform: translate(-50%,-50%);
     }
-    .service_details .service_detail_desc .detail_tag_line::after{
-        content: 'Swipe right  ' url('../images/rightArrows.svg');
+
+    .service_details .service_items .service_front .item_controls {
+        display: none;
+    }
+
+    .service_details .service_items .service_front .item_details::after{
+        content: 'Swipe right or down';
         font-family: 'Abril Fatface', cursive;
-        font-size: 4vw;
+        font-size: 25px;
         color: #f3f3f3;
         position: absolute;
         bottom: 0;
         left: 50%;
-        transform: translate(-50%,350%);
+        opacity: .7;
+        transform: translate(-50%,-50%);
 
     }
     .service_details .service_item .detail_controls{
         display: none;
     }
     
-    .service_details .service_intro{
+    .service_details .service_items .service_preview{
         width: 100%;
-        
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left:0;
+        background: #100F0F
     }
-    .service_details .service_intro::after{
-        content: 'Swipe back' url('../images/rightArrows.svg');
+    .service_details .service_items .service_preview .preview_title{
+        font-size: 40px;
+    }
+    .service_details .service_items .service_preview .preview_title::after{
+        width: 150px;
+        bottom: -15%;
+    }
+    .service_details .service_items .service_preview .preview_text{
+        font-size: 25px;
+    }
+    .service_details .service_items .service_preview .backbutton{
+        display: none;
+    }
+    .service_details .service_items .service_preview::after{
+        content: 'Swipe back';
         font-family: 'Abril Fatface', cursive;
         font-size: 4vw;
         color: #f3f3f3;
         position: absolute;
+        opacity: .7;
         bottom: 0;
         left: 50%;
         transform: translate(-50%,-50%);
-        
-
     }
-    .service_details .service_intro .backbutton{
-        display: none;
-    }
+    
 
     .pagewrapper .main_content{
         width: 76%;

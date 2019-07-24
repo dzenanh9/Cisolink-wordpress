@@ -352,196 +352,7 @@ body{
 .hidden{
     display: none;
 }
-.service_details{
-    width: 25%;
-    height: 100vh;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 100;
-}
 
-.service_details .service_item{
-    width: 100%;
-    height: 100%;
-    background: #100F0F;
-    position: absolute;
-}
-.service_details .service_item.active{
-    width: 90%;
-}
-.service_details .service_item .service_wrapp{
-    width: 100%;
-    height: 100%;
-    position: relative;
-    background: #4D6094;
-}
-.service_details .service_item.active .service_wrapp{
-    width: 50%;
-    background: #4D6094;
-}
-.service_item .service_intro{
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: none;
-}
-.service_item.active .service_intro{
-    display: block;
-}
-.service_details.active{
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 10000;
-}
-.service_details .service_item.prepare{
-    width: 30%;
-    right: -20%;
-    background: #989695;
-}
-.service_details .service_item.prepare .service_wrapp{
-    background: #989695;
-}
-.service_details .service_detail_img{
-    width: 100%;
-    height: 50%;
-    
-}
-.service_details .service_detail_img img{
-    width: 100%;
-    height: 100%;
-}
-.service_details .service_detail_desc{
-    width: 100%;
-    height: 50%;
-    position: relative;
-}
-.service_details .service_detail_desc .detail_info{
-    width: 100%;
-    height: 10%;
-    position: relative;
-}
-.service_details .service_detail_desc .detail_info .detail_index{
-    font-family: 'Abril Fatface', cursive;
-    font-size: 1.7vw;
-    color: #f3f3f3;
-    position: absolute;
-    top: 7%;
-    left: 5%;
-    
-}
-.service_details .service_detail_desc .detail_info .detail_small_title{
-    font-family: 'Abril Fatface', cursive;
-    font-size: 1.5vw;
-    color: #f3f3f3;
-    position: absolute;
-    top: 7%;
-    right: 5%;
-    
-}
-.service_details .service_detail_desc .detail_tag_line{
-    font-family: 'Righteous', cursive;
-    font-size: 2.2vw;
-    color: #f3f3f3;
-    width: 90%;
-    position: absolute;
-    top: 17.5%;
-    left: 5%;
-    
-}
-.service_details .service_item .detail_controls{
-    width: 100%;
-    height: 5%;
-    position: absolute;
-    bottom: 0;
-}
-.service_details .service_item .detail_controls .detail_expand{
-    font-family: 'Abril Fatface', cursive;
-    font-size: 1.4vw;
-    color: #f3f3f3;
-    text-align: left;
-    cursor: pointer;
-    position: absolute;
-    top: 7%;
-    left: 5%;
-
-}
-.service_details .service_item .detail_controls .detail_switch_controls{
-    position: absolute;
-    top: 7%;
-    right: 5%;
-}
-.service_details .service_item .detail_controls .detail_switch_controls .switch_left{
-    display: inline-block;
-    cursor: pointer;
-}
-.service_details .service_item .detail_controls .detail_switch_controls .switch_left svg{
-    width: 70%
-}
-.service_details .service_item .detail_controls .detail_switch_controls .switch_right{
-    display: inline-block;
-    cursor: pointer;
-}
-.service_details .service_item .detail_controls .detail_switch_controls .switch_right svg{
-    width: 70%
-}
-.service_details .service_item .service_content{
-    width: 70%;
-    margin: 5% 10%;
-}
-
-.service_details .service_item .service_content  h1{
-    font-size: 5vw;
-    font-family: 'Abril Fatface', cursive; 
-    color: #F3F3F3;
-    position: relative;
-}
-.service_details .service_item .service_content  h1::after{
-    content: '';
-    width: 20%;
-    height: 3px;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #4D6094;
-}
-.service_details .service_item .service_content  p{
-    font-size: 3vw;
-    font-family: 'Open Sans', sans-serif; 
-    padding: 0;
-    color:#989695;
-}
-.service_details .service_item .service_content .gotobutton{
-    width: 25%;
-    padding-bottom: 2px;
-    color: #4D6094;
-    font-size: 3vw;
-    font-family: 'Righteous', cursive;
-    border-bottom: 2px dashed #4D6094;
-    cursor: pointer;
-}
-.service_details .service_item .service_intro .backbutton{
-    width: 100%;
-    height: 10vh;
-    background: #242424;
-    font-family: 'Righteous', cursive;
-    font-size: 1.4vw;
-    color:#F3F3F3;
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    cursor: pointer;
-}
-.service_details .service_item .service_intro .backbutton svg{
-    position: absolute;
-    top: 25%;
-    left: 41%;
-}
 .service_slider{
     width: 100%;
     height: 100vh;
@@ -800,4 +611,183 @@ body{
     display: none;
 }
 
-  
+/* footer details slider  */
+
+.service_details{
+    width: 25%;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.service_details .category_items{
+    width: 100%;
+    height: 100%;
+    background: #4D6094;
+    
+}
+.category_items .service_items{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.service_items .service_front{
+    width: 100%;
+    height: 100%;
+}
+.service_items .service_front img{
+    width: 100%;
+    height: 50%;
+}
+.service_front .item_details{
+    width: 100%;
+    height: 40%;
+    position: relative;
+    font-family: 'Abril fatface', cursive;
+    font-size: 2vw;
+    color: #F3F3F3;
+}
+.item_details .item_index{
+    position: absolute;
+    top: 1%;
+    left: 5%;
+}
+.item_details .item_title{
+    position: absolute;
+    top: 1%;
+    right: 5%;
+}
+.item_details .item_tagline{
+    font-size: 2.5vw;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(0,-50%)
+}
+.service_front .item_controls{
+    width: 100%;
+    height: 10%;
+    position: relative;
+    font-family: 'Abril fatface', cursive;
+    font-size: 1.6vw;
+    color: #F3F3F3;
+}
+.item_controls .item_goto{
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    cursor: pointer;
+}
+.item_controls .item_goto a{
+    position: relative;
+}
+.item_controls .item_goto a::before{
+    content: '';
+    width: 50%;
+    height: 2px;
+    background: #F3F3F3;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(25%,25%)
+}
+.item_controls .item_switch{
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+}
+.item_switch > *{
+    display: inline;
+    cursor: pointer;
+}
+.service_items .service_preview{
+    display: none;
+    font-family: 'Abril fatface', cursive;
+    font-size: 1.6vw;
+    color: #F3F3F3;
+    position: relative;
+}
+.service_preview .preview_item{
+    width: 100%;
+    height: 90%;
+}
+.preview_item .preview_title{
+    font-size: 3.5vw;
+    margin: 30px;
+    position: relative;
+}
+.preview_item .preview_title::after{
+    content:'';
+    width: 50%;
+    height: 3px;
+    background: #456bd1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.preview_item .preview_text{
+    font-family: 'Open Sans', sans-serif;
+    color: #989695;
+    margin: 30px;
+    font-size: 1.6vw;
+}
+.preview_item .preview_goto{
+    width: 150px;
+    font-family: 'Righteous', cursive;
+    font-size: 25px;
+    color: #456bd1;
+    border-bottom: #456bd1 dashed 3px;
+    margin: 30px;
+}
+.service_preview .backbutton{
+    width: 100%;
+    height: 10%;
+    background: #242424;
+    text-align: center;
+    position: relative;
+    font-size: 30px;
+
+}
+.service_preview .backbutton:hover{
+    background: #456bd1;
+}
+.service_preview .backbutton::after{
+    content:url("..//images/leftArrow.svg");
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left:35%;
+    transform: translate(-50%,-50%)
+}
+.service_preview .backbutton > div{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-75%)
+}
+
+/* display service details */
+
+.service_details.active{
+    width: 100%;
+}
+
+.service_items.active .service_front{
+    width: 50%;
+    position: absolute;
+    top: 0;
+    left:0;
+}
+.service_items.active .service_preview{
+    display:block;
+    width: 35%;
+    height: 100%;
+    background: #100F0F;
+    position: absolute;
+    top: 0;
+    left:50%;
+    
+}
