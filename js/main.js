@@ -49,12 +49,16 @@ footer.on("swipedown", function(ev) {
 }
 
 
-
-
-//resize issue
+//check if it's phone or tablet
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    // some code..
+    //resize issue
 $("html, body, .pagewrapper, .service_slider, .menu-overall").css({
     height: $(window).height()
 });
+   }
+
+
 
 
 
