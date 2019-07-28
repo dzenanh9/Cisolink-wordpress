@@ -3,7 +3,7 @@
 
 <?php get_header();?>
 
-<div class="service_slider">
+<div id="service_slider" class="service_slider">
 
     <div class="slide_item">
         <img src="<?php echo bloginfo('template_url');?>/images/b1.jpg" alt="">
@@ -26,8 +26,8 @@
     <div class="slide_item">
         <img src="<?php echo bloginfo('template_url');?>/images/b4.jpg" alt="">
         <div class="service_overlay"></div>
-        <h1>Fiskalizacija</h1>
-        <h2>Automatizacija finaciskog aspekta preduzeca</h2>
+        <h1>Marketing</h1>
+        <h2>Odvedite vaš biznis do sledećeg nivoa</h2>
     </div>
     
 

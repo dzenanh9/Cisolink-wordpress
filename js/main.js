@@ -1,6 +1,6 @@
 
 
-//Hamburger menu 
+// Hamburger menu 
 
 var menuBtn = $('a.menu-btn'),
     menuBtnBlock = menuBtn.find('div.menu-btn-block');
@@ -25,31 +25,37 @@ menuBtn.on('click', function () {
     }
 
 });
+//footer nav mob controls
+var footer_nav = document.getElementById('footer');
 
-
-//details controls
-
-TriggerClick = 0;
-$(".item_goto").click(function () {
-    timeout_clear()
-    Itemstimeout_clear()
-
-    $(".service_details").toggleClass("active");
-
-    $(".category_items").children(":nth-child(n)").toggleClass('hidden');
-    $(".category_items").children(":first").removeClass('hidden');
-    $(".category_items").children(":first").toggleClass('active');
-    // $(".service_details").children(":nth-child(2)").removeClass('hidden');
-    // $(".service_details").children(":nth-child(2)").toggleClass('prepare');
-})
-
-$(".footer-nav").on('click' ,function(){
-    $(".footer-nav").animate({
-        height: "50vh"
-    },200,function(){
-
+if(footer_nav!=null){
+    var footer = new Hammer(footer_nav);
+footer.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+// listen to events...
+footer.on("swipeup", function(ev) {
+    $('.footer-nav').animate({
+        height:"50%"
+    },500, function(){
+    
     })
-})
+});
+footer.on("swipedown", function(ev) {
+    $('.footer-nav').animate({
+        height:"5%"
+    },500, function(){
+    
+    })
+});
+}
+
+
+
+
+//resize issue
+$("html, body, .pagewrapper, .service_slider, .menu-overall").css({
+    height: $(window).height()
+});
+
 
 
 
@@ -109,16 +115,25 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   next_slide[slideIndex-1].style.display = "block";
   cat_slide[slideIndex-1].style.display = "block";
-  cat_items=cat_slide[slideIndex-1].children;
-
+  get_category(cat_slide[slideIndex-1]);
+  
 timeout_clear()
 timeout_init()
 }
 
+
+
 //service details slide animation
+var cat_card
 var cat_items;
 var itemIndex = 1;
 categoryItemsSlider(itemIndex);
+function get_category(cat){
+    
+    cat_card=cat;
+    cat_items=cat.children;
+    
+}
 
 // Next/previous controls
 function plusItem(n) {
@@ -153,7 +168,160 @@ function categoryItemsSlider(n) {
         cat_items[i].style.display = "none"; 
     }
     cat_items[itemIndex-1].style.display = "block";
+    selectedCard=itemIndex;
+    cardLenght=cat_items.length;
+
   Itemstimeout_clear()
   Itemstimeout_init()
   }
+
+var selectedCard;
+var cardLenght;
+
+//details controls
+    //show details
+    $(".item_goto").click(function () {
+        timeout_clear()
+        Itemstimeout_clear()
+        
+        $(".service_details").addClass("active");
+        //remove classes of past cards
+        $(".category_items").children(":nth-child(n)").removeClass('active');
+        $(".category_items").children(":nth-child(n)").removeClass('prepare');
+        $(".category_items").children(":nth-child(n)").css("display", "none");
+
+        //display new cards
+        
+        $(".category_items").children(":nth-child("+(selectedCard)+")").addClass('active');
+        $(".category_items").children(":nth-child("+(selectedCard+1)+")").addClass('prepare');
+        $(".category_items").children(":nth-child("+(selectedCard)+")").css("display", "block");
+        $(".category_items").children(":nth-child("+(selectedCard+1)+")").css("display", "block");
+        if (selectedCard == cardLenght) { 
+            $(".category_items").children(":nth-child("+selectedCard+")").addClass('last');
+        }
+        selectedCard++;
+        if (selectedCard > cardLenght) { selectedCard = 1}
+    })
+    //hide details
+    $(".backbutton").click(function () { 
+        $(".service_details").removeClass("active");
+        $(".category_items").children(":nth-child(n)").removeClass('active');
+        $(".category_items").children(":nth-child(n)").removeClass('prepare');
+        $(".category_items").children(":nth-child(n)").removeClass('last');
+        $(".category_items").children(":nth-child(n)").css("display", "none");
+        $(".category_items").children(":nth-child("+(selectedCard)+")").css("display", "block");
+        
+        timeout_init();
+        Itemstimeout_init();
+
+       
+    })
+
+
+//footer nav controls
+
+$(".footer-nav").on('click' ,function(){
+    $(".footer-nav").animate({
+        height: "50vh"
+    },200,function(){
+
+    })
+})
+
+// Device gestures functions
+
+var myElement = document.getElementById('service_slider')
+var card = cat_items[selectedCard-1].children[0]
+var cardPreview = cat_items[selectedCard-1].children[1];
+
+var mc = new Hammer(myElement);
+
+mc.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+// listen to events...
+mc.on("swipeup", function(ev) {
+    
+        timeout_clear()
+        Itemstimeout_clear()
+        $('.service_details ').css("display", "block");
+        setValues()
+});
+
+
+
+mc = new Hammer(card);
+
+mc.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+// listen to events...
+mc.on("swipeup", function(ev) {
+    
+        $('.service_preview ').css("display", "block");
+        setValues();
+});
+mc.on("swipedown", function(ev) {
+    
+        $('.service_details ').css("display", "none");
+        setValues();
+});
+mc.on("swipeleft", function(ev) {
+    
+    plusItem(1)
+    setValues()
+});
+mc.on("swiperight", function(ev) {
+    
+    plusItem(-1)
+    setValues()
+});
+
+
+mc = new Hammer(cardPreview);
+
+mc.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+// listen to events...
+mc.on("swipedown", function(ev) {
+    
+        $('.service_preview ').css("display", "none");
+        setValues();
+});
+
+function setValues(){
+    card = cat_items[selectedCard-1].children[0]
+    cardPreview = cat_items[selectedCard-1].children[1]
+    
+    mc = new Hammer(card);
+
+mc.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+// listen to events...
+mc.on("swipeup", function(ev) {
+    
+        $('.service_preview ').css("display", "block");
+    
+});
+mc.on("swipedown", function(ev) {
+    
+        $('.service_details ').css("display", "none");
+    
+});
+mc.on("swipeleft", function(ev) {
+    
+    plusItem(1)
+    setValues()
+});
+mc.on("swiperight", function(ev) {
+    
+    plusItem(-1)
+    setValues()
+});
+mc = new Hammer(cardPreview);
+
+mc.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+// listen to events...
+mc.on("swipedown", function(ev) {
+    
+        $('.service_preview ').css("display", "none");
+        setValues();
+});
+
+}
+
 

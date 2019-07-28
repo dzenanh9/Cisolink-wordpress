@@ -2,7 +2,7 @@
 /* Responsive design  */
 
   /* Tablet Styles and (min-width: 401px) */
-  @media only screen  and (max-width: 960px) {
+  @media only screen and (max-width: 960px) {
     
     .pagewrapper .footer-nav{
         display: block;
@@ -25,6 +25,7 @@
     } 
     .sidebar .logo{
         width: 20%;
+        height: 70%;
     }
     .sidebar .slide_loader{
         display: none;
@@ -162,14 +163,14 @@
     .service_details .service_items .service_front .item_details .item_title{
         top: 10%;
         right: 50%;
-        font-size: 30px;
+        font-size: 17px;
         transform: translate(50%,0);
     }
     .service_details .service_items .service_front .item_details .item_tagline{
         top: 50%;
         left: 50%;
         text-align:center;
-        font-size: 40px;
+        font-size: 20px;
         transform: translate(-50%,-50%);
     }
 
@@ -180,7 +181,7 @@
     .service_details .service_items .service_front .item_details::after{
         content: 'Swipe right or down';
         font-family: 'Abril Fatface', cursive;
-        font-size: 25px;
+        font-size: 17px;
         color: #f3f3f3;
         position: absolute;
         bottom: 0;
@@ -202,14 +203,14 @@
         background: #100F0F
     }
     .service_details .service_items .service_preview .preview_title{
-        font-size: 40px;
+        font-size: 30px;
     }
     .service_details .service_items .service_preview .preview_title::after{
         width: 150px;
         bottom: -15%;
     }
     .service_details .service_items .service_preview .preview_text{
-        font-size: 25px;
+        font-size: 17px;
     }
     .service_details .service_items .service_preview .backbutton{
         display: none;
@@ -312,6 +313,6 @@
 }
 
 /* Mobile Styles */
-@media only screen and (max-width: 400px) {
-  
+@media only screen and (max-width: 425px) {
+    
 }

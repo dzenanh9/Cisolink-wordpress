@@ -11,6 +11,8 @@ function load_stylesheets(){
 function loadjs(){
     wp_register_script('customjs', get_template_directory_uri(). '/js/main.js', '', 1,true);
     wp_enqueue_script('customjs');
+    wp_register_script('swipejs', get_template_directory_uri(). '/js/Hammer.min.js', '', 1,false);
+    wp_enqueue_script('swipejs');
 }
 
 

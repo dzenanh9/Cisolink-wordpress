@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans|Righteous&display=swap');
+
+
 body{
     margin: 0;
     padding: 0;
@@ -15,11 +17,12 @@ body{
 .pagewrapper{
     width: 100%;
     height: 100vh;
+    overflow: hidden;
 }
 .pagewrapper .footer-nav{
     width: 100%;
-    height: 5vh;
-    position: absolute;
+    height: 5%;
+    position: fixed;
     bottom: 0;
     background: #1592E6;
     display: none;
@@ -145,7 +148,7 @@ body{
 .sidebar .logo{
     width: 90%;
     height: 10vh;
-    background: url('..//images/logo.png') center no-repeat ;
+    background: url('..//images/Logo.svg') center no-repeat ;
     background-size: contain;
     margin: 0 auto;
 }
@@ -360,7 +363,7 @@ body{
 }
 .service_slider .slide_item{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: relative
 }
 .service_slider .slide_item img{
@@ -711,7 +714,7 @@ body{
 }
 .service_preview .preview_item{
     width: 100%;
-    height: 90%;
+    height: 85%;
 }
 .preview_item .preview_title{
     font-size: 3.5vw;
@@ -743,7 +746,7 @@ body{
 }
 .service_preview .backbutton{
     width: 100%;
-    height: 10%;
+    height: 15%;
     background: #242424;
     text-align: center;
     position: relative;
@@ -781,6 +784,9 @@ body{
     top: 0;
     left:0;
 }
+.service_items.active .service_front .item_controls{
+    display: none;
+}
 .service_items.active .service_preview{
     display:block;
     width: 35%;
@@ -789,5 +795,19 @@ body{
     position: absolute;
     top: 0;
     left:50%;
-    
+}
+.service_items.active.last .service_preview{
+    width: 50%;
+}
+
+.service_items.prepare{
+    position: absolute;
+    background: #A4A4A4;
+    top: 0;
+    left:85%;
+}
+.service_items.prepare .item_details .item_tagline{
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #F3F3F3;
 }
