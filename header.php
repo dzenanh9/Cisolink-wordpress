@@ -15,7 +15,7 @@
 
     <div class="pagewrapper">
         <div class="sidebar">
-                <div class="logo" onclick="window.location.href='/wordpress'">
+                <div class="logo" onclick="window.location.href='<?php echo get_permalink( 16 ) ?>'">
                 </div>
             
             <div class="slide_loader">

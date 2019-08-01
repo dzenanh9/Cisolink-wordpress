@@ -1,18 +1,15 @@
 
 
 // Hamburger menu 
-
 var menuBtn = $('a.menu-btn'),
     menuBtnBlock = menuBtn.find('div.menu-btn-block');
 menuBtn.on('click', function () {
-
     menuBtnBlock.toggleClass('on');
     if(menuBtnBlock.hasClass('on')){
         $('.menu-overall').addClass('on');
         $('.menu-overall').animate({
             top:"0"
         },500, function(){
-        
         })
     }else{
         $('.menu-overall').animate({
@@ -20,14 +17,11 @@ menuBtn.on('click', function () {
         },500, function(){
             $('.menu-overall').removeClass('on');
         })
-
-        
     }
-
 });
+
 //footer nav mob controls
 var footer_nav = document.getElementById('footer');
-
 if(footer_nav!=null){
     var footer = new Hammer(footer_nav);
 footer.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
@@ -36,27 +30,38 @@ footer.on("swipeup", function(ev) {
     $('.footer-nav').animate({
         height:"50%"
     },500, function(){
-    
     })
 });
 footer.on("swipedown", function(ev) {
     $('.footer-nav').animate({
         height:"5%"
     },500, function(){
-    
     })
 });
 }
 
-
-//check if it's phone or tablet
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    // some code..
-    //resize issue
-$("html, body, .pagewrapper, .service_slider, .menu-overall").css({
-    height: $(window).height()
-});
-   }
+if($('.main_content')[0]!=undefined){
+(function(){
+    
+    var $w = $('.content_display');
+    var $prog2 = $('#scroll_indicator');
+    var wh = $w.height();
+    var h = $('.content_display')[0].scrollHeight;
+    var sHeight = h - wh;
+    $w.on('scroll', function(){
+        var perc = Math.max(0, Math.min(1, $w.scrollTop()/sHeight));
+        updateProgress(perc);
+        
+    });
+ 
+    function updateProgress(perc){
+        var line_offset = 663 * perc;
+        $prog2.css({"stroke-dashoffset" : 663 - line_offset});
+        
+    }
+ 
+}());
+}
 
 
 
@@ -116,10 +121,19 @@ function showSlides(n) {
   for (i = 0; i < cat_slide.length; i++) {
     cat_slide[i].style.display = "none"; 
   }
-  slides[slideIndex-1].style.display = "block";
-  next_slide[slideIndex-1].style.display = "block";
-  cat_slide[slideIndex-1].style.display = "block";
-  get_category(cat_slide[slideIndex-1]);
+  if(slides[slideIndex-1]!=null){
+    slides[slideIndex-1].style.display = "block";
+    next_slide[slideIndex-1].style.display = "block";
+    cat_slide[slideIndex-1].style.display = "block";
+    get_category(cat_slide[slideIndex-1]);
+  }else{
+    cat_slide[0].style.display = "block";
+    get_category(cat_slide[0]);
+  }
+    
+    
+    
+  
   
 timeout_clear()
 timeout_init()
@@ -172,6 +186,7 @@ function categoryItemsSlider(n) {
         cat_items[i].style.display = "none"; 
     }
     cat_items[itemIndex-1].style.display = "block";
+    animateCSS(cat_items[itemIndex-1], 'fadeIn', function() {})
     selectedCard=itemIndex;
     cardLenght=cat_items.length;
 
@@ -232,11 +247,41 @@ $(".footer-nav").on('click' ,function(){
     })
 })
 
+//Animation
+function animateCSS(node, animationName, callback) {
+    
+    // var node = document.querySelector(element)
+    node.classList.add('animated', animationName)
+    
+    function handleAnimationEnd() {
+        node.classList.remove('animated', animationName)
+        node.removeEventListener('animationend', handleAnimationEnd)
+
+        if (typeof callback === 'function') callback()
+    }
+
+    node.addEventListener('animationend', handleAnimationEnd)
+}
+
+//check if it's phone or tablet
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    // some code..
+    //resize issue
+$("html, body, .pagewrapper, .service_slider, .menu-overall").css({
+    height: $(window).height()
+});
+
+
 // Device gestures functions
 
 var myElement = document.getElementById('service_slider')
+var details = document.getElementById('service_details')
 var card = cat_items[selectedCard-1].children[0]
 var cardPreview = cat_items[selectedCard-1].children[1];
+
+if(myElement!=null){
+
+
 
 var mc = new Hammer(myElement);
 
@@ -246,10 +291,18 @@ mc.on("swipeup", function(ev) {
     
         timeout_clear()
         Itemstimeout_clear()
-        $('.service_details ').css("display", "block");
+        $(details).css("display", "block");
         setValues()
+        animateCSS(myElement, 'fadeOut', function() {
+            // Do something after animation
+            $(myElement).css("display", "none");
+          })
+        animateCSS(details, 'slideInUp', function() {
+            // Do something after animation
+            
+          })
 });
-
+}
 
 
 mc = new Hammer(card);
@@ -257,24 +310,51 @@ mc = new Hammer(card);
 mc.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 // listen to events...
 mc.on("swipeup", function(ev) {
+    $(cardPreview).css("display", "block");
     
-        $('.service_preview ').css("display", "block");
+    animateCSS(cardPreview, 'slideInUp', function() {
+        // Do something after animation
         setValues();
+      })
+        
 });
 mc.on("swipedown", function(ev) {
-    
-        $('.service_details ').css("display", "none");
-        setValues();
+        $(myElement).css("display", "block");
+        animateCSS(details, 'slideOutDown', function() {
+            // Do something after animation
+            $(details).css("display", "none");
+            setValues();
+            
+          })
+        
 });
 mc.on("swipeleft", function(ev) {
-    
-    plusItem(1)
-    setValues()
+
+    animateCSS(card, 'slideOutLeft', function() {
+        // Do something after animation
+        plusItem(1)
+        timeout_clear()
+        Itemstimeout_clear()
+        setValues()
+        animateCSS(card, 'slideInRight', function() {
+            // Do something after animation
+            
+          })
+      })
 });
 mc.on("swiperight", function(ev) {
+    animateCSS(card, 'slideOutRight', function() {
+        // Do something after animation
+        plusItem(-1)
+        timeout_clear()
+        Itemstimeout_clear()
+        setValues()
+        animateCSS(card, 'slideInLeft', function() {
+            // Do something after animation
+            
+          })
+      })
     
-    plusItem(-1)
-    setValues()
 });
 
 
@@ -283,9 +363,12 @@ mc = new Hammer(cardPreview);
 mc.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
 // listen to events...
 mc.on("swipedown", function(ev) {
-    
-        $('.service_preview ').css("display", "none");
-        setValues();
+    animateCSS(cardPreview, 'slideOutDown', function() {
+        // Do something after animation
+        $(cardPreview).css("display", "none");
+      })
+        
+     
 });
 
 function setValues(){
@@ -297,35 +380,63 @@ function setValues(){
 mc.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 // listen to events...
 mc.on("swipeup", function(ev) {
-    
-        $('.service_preview ').css("display", "block");
+        $(cardPreview).css("display", "block");
+            animateCSS(cardPreview, 'slideInUp', function() {
+            // Do something after animation
+            
+          })
     
 });
 mc.on("swipedown", function(ev) {
-    
-        $('.service_details ').css("display", "none");
+    $(myElement).css("display", "block");
+    animateCSS(details, 'slideOutDown', function() {
+        // Do something after animation
+        $(details).css("display", "none");
+      })
+        
     
 });
 mc.on("swipeleft", function(ev) {
     
-    plusItem(1)
-    setValues()
+    animateCSS(card, 'slideOutLeft', function() {
+        // Do something after animation
+        plusItem(1)
+        timeout_clear()
+        Itemstimeout_clear()
+        setValues()
+        animateCSS(card, 'slideInRight', function() {
+            // Do something after animation
+            
+          })
+      })
 });
 mc.on("swiperight", function(ev) {
     
-    plusItem(-1)
-    setValues()
+    animateCSS(card, 'slideOutRight', function() {
+        // Do something after animation
+        plusItem(-1)
+        timeout_clear()
+        Itemstimeout_clear()
+        setValues()
+        animateCSS(card, 'slideInLeft', function() {
+            // Do something after animation
+            
+          })
+      })
 });
 mc = new Hammer(cardPreview);
 
 mc.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
 // listen to events...
 mc.on("swipedown", function(ev) {
-    
-        $('.service_preview ').css("display", "none");
+    animateCSS(cardPreview, 'slideOutDown', function() {
+        // Do something after animation
+        $(cardPreview).css("display", "none");
         setValues();
+      })
+        
 });
 
 }
 
-
+}

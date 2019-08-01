@@ -1,4 +1,4 @@
-<div class="service_details ">
+<div id="service_details" class="service_details ">
     <!-- pantheon 4-->
     <div class="category_items">
 
